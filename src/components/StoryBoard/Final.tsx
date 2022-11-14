@@ -25,12 +25,14 @@ const CenterDiv = styled.div`
 function Comp() {
   const { progress } = useScroll();
   const [isVisible, setIsVisible] = useState(true);
+  const [otherIsVisible, setOtherIsVisible] = useState(true);
   const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
     // 分鏡長度~0~3
     // 期間大小由大到小, 超過0.3畫面消失
     setIsVisible(progress > 94);
+    setOtherIsVisible(progress < 94);
 
     if (progress >= 93.5 && progress <= 96.5) {
       setOpacity(0 + 1 * (progress - 93.5) * (1 / 2));
@@ -111,7 +113,7 @@ function Comp() {
           alignSelf: 'center',
           display: 'flex',
           position: 'absolute',
-          // visibility: !isVisible ? 'visible' : 'hidden',
+          visibility: otherIsVisible ? 'visible' : 'hidden',
           bottom: '1vw',
           right: '2vh',
           height: '15vh',

@@ -466,6 +466,7 @@ function Comp() {
       <div
         style={{
           position: 'absolute',
+          visibility: 'visible',
         }}
       >
         {progress}

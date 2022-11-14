@@ -14,35 +14,29 @@ import Medal from '../components/StoryBoard/Medal';
 import Sponsor from '../components/StoryBoard/Sponsor';
 import Line from '../components/StoryBoard/Line';
 import Final from '../components/StoryBoard/Final';
-import useScroll from '../hooks/useScroll';
 
-const Home: React.FC<any> = () => {
-  const { scrollTop } = useScroll();
-
-  return (
-    <div
-      style={{
-        height: '700vh',
-        overflow: 'show',
-        position: 'relative',
-        backgroundColor: '#FFC37D',
-      }}
-    >
-      <Cloud />
-      <Cloud2 />
-      <ReadyFrame />
-      <RoadSideTree />
-      <Door />
-      <Road />
-      <Question />
-      <WeekCard />
-      <DateLine />
-      <Medal />
-      <Sponsor />
-      <Line />
-      <Final />
-      Hello worlddd
-    </div>
-  );
-};
+const Home: React.FC<any> = () => (
+  <div
+    style={{
+      height: '700vh',
+      overflow: 'show',
+      position: 'relative',
+      backgroundColor: '#FFC37D',
+    }}
+  >
+    <Cloud />
+    <Cloud2 />
+    <ReadyFrame />
+    <RoadSideTree />
+    <Door />
+    <Road />
+    <Question />
+    <WeekCard />
+    <DateLine />
+    <Medal />
+    <Sponsor />
+    <Line />
+    <Final />
+  </div>
+);
 export default Home;

@@ -7,9 +7,8 @@ import {
   question3,
   bgTalking,
   btnJoin,
-  btnJoinH,
-  btnJoinHand,
 } from '../../assets/image';
+import { getDelta } from '../../utils';
 
 const leftToRight = keyframes`
   from {opacity: 0; margin-left: -3vw;}
@@ -79,21 +78,26 @@ function Comp() {
   const [delta, setDelta] = useState(0);
 
   useEffect(() => {
-    // 分鏡長度~0~0.4 正常
-    // 0.5 下縮, 樹出現
-    // 期間大小由大到小, 超過0.3畫面消失
     if (progress <= 10) {
       setDelta(51);
     } else if (progress > 10 && progress < 15) {
-      setDelta(51 - (15 * (progress - 10)) / 5);
+      setDelta(51 - 15 * getDelta(progress, 10, 15));
     }
     setIsVisible(progress <= timeSlot);
   }, [progress]);
 
   const prepareTopQuestion = () => {
     if (progress >= 11 && progress <= 20) {
+      let opacity = 1;
+      if (progress >= 11 && progress <= 14) {
+        // fade in
+        opacity = 0 + 1 * getDelta(progress, 11, 14);
+      } else if (progress >= 18 && progress <= 20) {
+        // fade in
+        opacity = 1 - 1 * getDelta(progress, 18, 20);
+      }
       return (
-        <>
+        <div style={{ opacity }}>
           <CenterDiv>
             <img style={{ width: '100%' }} src={bgTalking} alt="bgTalking" />
           </CenterDiv>
@@ -108,7 +112,7 @@ function Comp() {
           >
             你是否也有以下困擾
           </CenterDiv>
-        </>
+        </div>
       );
     }
     if (progress >= 23 && progress <= 25) {
@@ -133,8 +137,16 @@ function Comp() {
       );
     }
     if (progress > 25 && progress <= 41.2) {
+      let opacity = 1;
+      if (progress >= 25 && progress <= 28) {
+        // fade in
+        opacity = 0 + 1 * getDelta(progress, 25, 28);
+      } else if (progress >= 39.2 && progress <= 41.2) {
+        // fade in
+        opacity = 1 - 1 * getDelta(progress, 39.2, 41.2);
+      }
       return (
-        <>
+        <div style={{ opacity }}>
           <CenterDiv style={{ width: '39vw' }}>
             <img style={{ width: '100%' }} src={bgTalking} alt="bgTalking" />
           </CenterDiv>
@@ -150,7 +162,7 @@ function Comp() {
           >
             年度最強活動,三大主題來襲
           </CenterDiv>
-        </>
+        </div>
       );
     }
     if (progress > 51.7 && progress <= 58.7) {
