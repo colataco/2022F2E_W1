@@ -71,7 +71,7 @@ function Comp() {
           alignSelf: 'center',
           display: 'flex',
           position: 'absolute',
-          visibility: !isVisible ? 'visible' : 'hidden',
+          // visibility: !isVisible ? 'visible' : 'hidden',
           top: 0,
           right: 0,
           height: '15vh',
