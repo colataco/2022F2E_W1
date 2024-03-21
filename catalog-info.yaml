@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 2022F2E_W1
+  annotations:
+    github.com/project-slug: colataco/2022F2E_W1
+spec:
+  type: other
+  lifecycle: unknown
+  owner: taco
